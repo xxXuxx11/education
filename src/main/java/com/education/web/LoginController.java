@@ -15,7 +15,7 @@ public class LoginController {
         Teacher teacher=new Teacher();
         teacher.setTname("王老师");
         teacher.setTage(35);
-
+        System.out.println("git");
         return teacher;
     }
 
