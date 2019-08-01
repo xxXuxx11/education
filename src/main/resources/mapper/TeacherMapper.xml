@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.TeacherMapper">
+  <resultMap id="BaseResultMap" type="com.education.bean.Teacher">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="tname" jdbcType="VARCHAR" property="tname" />
+    <result column="thead" jdbcType="VARCHAR" property="thead" />
+    <result column="tage" jdbcType="INTEGER" property="tage" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="certification" jdbcType="VARCHAR" property="certification" />
+    <result column="experience" jdbcType="VARCHAR" property="experience" />
+    <result column="begoodat" jdbcType="VARCHAR" property="begoodat" />
+    <result column="selfassessment" jdbcType="VARCHAR" property="selfassessment" />
+    <result column="tphone" jdbcType="VARCHAR" property="tphone" />
+    <result column="tcardid" jdbcType="VARCHAR" property="tcardid" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, tname, thead, tage, education, certification, experience, begoodat, selfassessment, 
+    tphone, tcardid, phone, password, sex, wechat
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teacher
+    where tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teacher
+    where tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.education.bean.Teacher">
+    insert into teacher (tid, tname, thead, 
+      tage, education, certification, 
+      experience, begoodat, selfassessment, 
+      tphone, tcardid, phone, 
+      password, sex, wechat
+      )
+    values (#{tid,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, #{thead,jdbcType=VARCHAR}, 
+      #{tage,jdbcType=INTEGER}, #{education,jdbcType=VARCHAR}, #{certification,jdbcType=VARCHAR}, 
+      #{experience,jdbcType=VARCHAR}, #{begoodat,jdbcType=VARCHAR}, #{selfassessment,jdbcType=VARCHAR}, 
+      #{tphone,jdbcType=VARCHAR}, #{tcardid,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.education.bean.Teacher">
+    insert into teacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="tname != null">
+        tname,
+      </if>
+      <if test="thead != null">
+        thead,
+      </if>
+      <if test="tage != null">
+        tage,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="certification != null">
+        certification,
+      </if>
+      <if test="experience != null">
+        experience,
+      </if>
+      <if test="begoodat != null">
+        begoodat,
+      </if>
+      <if test="selfassessment != null">
+        selfassessment,
+      </if>
+      <if test="tphone != null">
+        tphone,
+      </if>
+      <if test="tcardid != null">
+        tcardid,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="thead != null">
+        #{thead,jdbcType=VARCHAR},
+      </if>
+      <if test="tage != null">
+        #{tage,jdbcType=INTEGER},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="certification != null">
+        #{certification,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="begoodat != null">
+        #{begoodat,jdbcType=VARCHAR},
+      </if>
+      <if test="selfassessment != null">
+        #{selfassessment,jdbcType=VARCHAR},
+      </if>
+      <if test="tphone != null">
+        #{tphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tcardid != null">
+        #{tcardid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.education.bean.Teacher">
+    update teacher
+    <set>
+      <if test="tname != null">
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="thead != null">
+        thead = #{thead,jdbcType=VARCHAR},
+      </if>
+      <if test="tage != null">
+        tage = #{tage,jdbcType=INTEGER},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="certification != null">
+        certification = #{certification,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        experience = #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="begoodat != null">
+        begoodat = #{begoodat,jdbcType=VARCHAR},
+      </if>
+      <if test="selfassessment != null">
+        selfassessment = #{selfassessment,jdbcType=VARCHAR},
+      </if>
+      <if test="tphone != null">
+        tphone = #{tphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tcardid != null">
+        tcardid = #{tcardid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.education.bean.Teacher">
+    update teacher
+    set tname = #{tname,jdbcType=VARCHAR},
+      thead = #{thead,jdbcType=VARCHAR},
+      tage = #{tage,jdbcType=INTEGER},
+      education = #{education,jdbcType=VARCHAR},
+      certification = #{certification,jdbcType=VARCHAR},
+      experience = #{experience,jdbcType=VARCHAR},
+      begoodat = #{begoodat,jdbcType=VARCHAR},
+      selfassessment = #{selfassessment,jdbcType=VARCHAR},
+      tphone = #{tphone,jdbcType=VARCHAR},
+      tcardid = #{tcardid,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+</mapper>

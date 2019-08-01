@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.education.bean.Student">
+    <id column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="sname" jdbcType="VARCHAR" property="sname" />
+    <result column="shead" jdbcType="VARCHAR" property="shead" />
+    <result column="sage" jdbcType="INTEGER" property="sage" />
+    <result column="stuaddress" jdbcType="VARCHAR" property="stuaddress" />
+    <result column="gradeid" jdbcType="INTEGER" property="gradeid" />
+    <result column="stuschool" jdbcType="VARCHAR" property="stuschool" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="character" jdbcType="VARCHAR" property="character" />
+    <result column="sphone" jdbcType="VARCHAR" property="sphone" />
+    <result column="scardid" jdbcType="VARCHAR" property="scardid" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sid, sname, shead, sage, stuaddress, gradeid, stuschool, status, `character`, sphone,
+    scardid, phone, password, sex, wechat
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where sid = #{sid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from student
+    where sid = #{sid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.education.bean.Student">
+    insert into student (sid, sname, shead, 
+      sage, stuaddress, gradeid, 
+      stuschool, status, `character`,
+      sphone, scardid, phone, 
+      password, sex, wechat
+      )
+    values (#{sid,jdbcType=INTEGER}, #{sname,jdbcType=VARCHAR}, #{shead,jdbcType=VARCHAR}, 
+      #{sage,jdbcType=INTEGER}, #{stuaddress,jdbcType=VARCHAR}, #{gradeid,jdbcType=INTEGER}, 
+      #{stuschool,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{character,jdbcType=VARCHAR}, 
+      #{sphone,jdbcType=VARCHAR}, #{scardid,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.education.bean.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="sname != null">
+        sname,
+      </if>
+      <if test="shead != null">
+        shead,
+      </if>
+      <if test="sage != null">
+        sage,
+      </if>
+      <if test="stuaddress != null">
+        stuaddress,
+      </if>
+      <if test="gradeid != null">
+        gradeid,
+      </if>
+      <if test="stuschool != null">
+        stuschool,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="character != null">
+        `character`,
+      </if>
+      <if test="sphone != null">
+        sphone,
+      </if>
+      <if test="scardid != null">
+        scardid,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null">
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="shead != null">
+        #{shead,jdbcType=VARCHAR},
+      </if>
+      <if test="sage != null">
+        #{sage,jdbcType=INTEGER},
+      </if>
+      <if test="stuaddress != null">
+        #{stuaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null">
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="stuschool != null">
+        #{stuschool,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="character != null">
+        #{character,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null">
+        #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="scardid != null">
+        #{scardid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.education.bean.Student">
+    update student
+    <set>
+      <if test="sname != null">
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="shead != null">
+        shead = #{shead,jdbcType=VARCHAR},
+      </if>
+      <if test="sage != null">
+        sage = #{sage,jdbcType=INTEGER},
+      </if>
+      <if test="stuaddress != null">
+        stuaddress = #{stuaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeid != null">
+        gradeid = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="stuschool != null">
+        stuschool = #{stuschool,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="character != null">
+        `character` = #{character,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null">
+        sphone = #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="scardid != null">
+        scardid = #{scardid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.education.bean.Student">
+    update student
+    set sname = #{sname,jdbcType=VARCHAR},
+      shead = #{shead,jdbcType=VARCHAR},
+      sage = #{sage,jdbcType=INTEGER},
+      stuaddress = #{stuaddress,jdbcType=VARCHAR},
+      gradeid = #{gradeid,jdbcType=INTEGER},
+      stuschool = #{stuschool,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      `character` = #{character,jdbcType=VARCHAR},
+      sphone = #{sphone,jdbcType=VARCHAR},
+      scardid = #{scardid,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR}
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+</mapper>

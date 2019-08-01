@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.education.bean.Order">
+    <id column="oid" jdbcType="INTEGER" property="oid" />
+    <result column="starttime" jdbcType="DATE" property="starttime" />
+    <result column="endtime" jdbcType="DATE" property="endtime" />
+    <result column="classaddress" jdbcType="VARCHAR" property="classaddress" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="teacherid" jdbcType="INTEGER" property="teacherid" />
+    <result column="studentid" jdbcType="INTEGER" property="studentid" />
+    <result column="studentevaluate" jdbcType="VARCHAR" property="studentevaluate" />
+    <result column="teacherevaluate" jdbcType="VARCHAR" property="teacherevaluate" />
+    <result column="orderstatic" jdbcType="INTEGER" property="orderstatic" />
+    <result column="ordertype" jdbcType="INTEGER" property="ordertype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    oid, starttime, endtime, classaddress, content, price, remark, teacherid, studentid, 
+    studentevaluate, teacherevaluate, orderstatic, ordertype
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from `order`
+    where oid = #{oid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from `order`
+    where oid = #{oid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.education.bean.Order">
+    insert into `order` (oid, starttime, endtime,
+      classaddress, content, price, 
+      remark, teacherid, studentid, 
+      studentevaluate, teacherevaluate, orderstatic, 
+      ordertype)
+    values (#{oid,jdbcType=INTEGER}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
+      #{classaddress,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{remark,jdbcType=VARCHAR}, #{teacherid,jdbcType=INTEGER}, #{studentid,jdbcType=INTEGER}, 
+      #{studentevaluate,jdbcType=VARCHAR}, #{teacherevaluate,jdbcType=VARCHAR}, #{orderstatic,jdbcType=INTEGER}, 
+      #{ordertype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.education.bean.Order">
+    insert into `order`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        oid,
+      </if>
+      <if test="starttime != null">
+        starttime,
+      </if>
+      <if test="endtime != null">
+        endtime,
+      </if>
+      <if test="classaddress != null">
+        classaddress,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="teacherid != null">
+        teacherid,
+      </if>
+      <if test="studentid != null">
+        studentid,
+      </if>
+      <if test="studentevaluate != null">
+        studentevaluate,
+      </if>
+      <if test="teacherevaluate != null">
+        teacherevaluate,
+      </if>
+      <if test="orderstatic != null">
+        orderstatic,
+      </if>
+      <if test="ordertype != null">
+        ordertype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="classaddress != null">
+        #{classaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherid != null">
+        #{teacherid,jdbcType=INTEGER},
+      </if>
+      <if test="studentid != null">
+        #{studentid,jdbcType=INTEGER},
+      </if>
+      <if test="studentevaluate != null">
+        #{studentevaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherevaluate != null">
+        #{teacherevaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstatic != null">
+        #{orderstatic,jdbcType=INTEGER},
+      </if>
+      <if test="ordertype != null">
+        #{ordertype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.education.bean.Order">
+    update `order`
+    <set>
+      <if test="starttime != null">
+        starttime = #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        endtime = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="classaddress != null">
+        classaddress = #{classaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherid != null">
+        teacherid = #{teacherid,jdbcType=INTEGER},
+      </if>
+      <if test="studentid != null">
+        studentid = #{studentid,jdbcType=INTEGER},
+      </if>
+      <if test="studentevaluate != null">
+        studentevaluate = #{studentevaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherevaluate != null">
+        teacherevaluate = #{teacherevaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstatic != null">
+        orderstatic = #{orderstatic,jdbcType=INTEGER},
+      </if>
+      <if test="ordertype != null">
+        ordertype = #{ordertype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.education.bean.Order">
+    update `order`
+    set starttime = #{starttime,jdbcType=DATE},
+      endtime = #{endtime,jdbcType=DATE},
+      classaddress = #{classaddress,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      remark = #{remark,jdbcType=VARCHAR},
+      teacherid = #{teacherid,jdbcType=INTEGER},
+      studentid = #{studentid,jdbcType=INTEGER},
+      studentevaluate = #{studentevaluate,jdbcType=VARCHAR},
+      teacherevaluate = #{teacherevaluate,jdbcType=VARCHAR},
+      orderstatic = #{orderstatic,jdbcType=INTEGER},
+      ordertype = #{ordertype,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+</mapper>
