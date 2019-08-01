@@ -37,7 +37,7 @@ http://www.springframework.org/schema/mvc
 
     <!--5.省略dao层实现类的代码-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.qf.dao"></property>
+        <property name="basePackage" value="com.education.dao"></property>
         <property name="sqlSessionFactoryBeanName" value="fac"></property>
     </bean>
 </beans>

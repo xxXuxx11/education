@@ -1,9 +1,17 @@
 package com.education.service.impl;
 
 import com.education.bean.Student;
+import com.education.dao.StudentMapper;
 import com.education.service.StudentService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
+
+@Service
 public class StudentServiceImpl implements StudentService {
+@Resource
+private StudentMapper studentMapper;
     @Override
     public int deleteByPrimaryKey(Integer sid) {
         return 0;
