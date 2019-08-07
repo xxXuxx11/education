@@ -22,6 +22,9 @@
     sid, sname, shead, sage, stuaddress, gradeid, stuschool, status, `character`, sphone,
     scardid, phone, password, sex, wechat
   </sql>
+  <select id="login" resultMap="BaseResultMap">
+    select * from student where phone=#{phone}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

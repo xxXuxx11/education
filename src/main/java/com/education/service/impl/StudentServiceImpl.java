@@ -12,6 +12,19 @@ import javax.annotation.Resource;
 public class StudentServiceImpl implements StudentService {
 @Resource
 private StudentMapper studentMapper;
+
+    @Override
+    public Student login(String phone, String password) {
+
+        //1.根据用户名查询信息
+        Student student = studentMapper.login(phone);
+        //2.验证密码
+        if (student!=null&&password.equals(student.getPassword())) {
+            return student;
+        }
+        return null;
+    }
+
     @Override
     public int deleteByPrimaryKey(Integer sid) {
         return 0;

@@ -3,8 +3,8 @@ package com.education.dao;
 import com.education.bean.Student;
 
 
-
 public interface StudentMapper {
+    Student login(String phone);
     int deleteByPrimaryKey(Integer sid);
 
     int insert(Student record);

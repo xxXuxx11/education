@@ -15,7 +15,7 @@ import org.junit.Before;
  */
 public class TestYunpianClient implements YunpianConstant {
 
-	static final String TESTKEY = "";
+	static final String TESTKEY = "44fb6b3154f44d6ddea35de4110ffefc";
 
 	YunpianClient clnt;
 

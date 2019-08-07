@@ -3,6 +3,7 @@ package com.education.service;
 import com.education.bean.Student;
 
 public interface StudentService {
+    Student login(String phone,String password);
     int deleteByPrimaryKey(Integer sid);
 
     int insert(Student record);

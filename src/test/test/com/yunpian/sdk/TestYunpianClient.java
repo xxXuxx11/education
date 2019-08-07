@@ -67,7 +67,7 @@ public class TestYunpianClient extends YunpianConf {
         long et = System.currentTimeMillis();
         long time = (et - st) / 1000;
         long qps = count / time;
-        LOG.info("exec count-{} time-{}s qps-{}", count, time, qps);
+       // LOG.info("exec count-{} time-{}s qps-{}", count, time, qps);
     }
 
 }
