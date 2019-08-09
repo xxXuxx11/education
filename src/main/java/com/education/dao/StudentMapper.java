@@ -4,6 +4,8 @@ import com.education.bean.Student;
 
 
 public interface StudentMapper {
+    int changpassword(String phone,String password);
+    Student findall(int sid);
     Student login(String phone);
     int deleteByPrimaryKey(Integer sid);
 

@@ -22,6 +22,13 @@
     tid, tname, thead, tage, education, certification, experience, begoodat, selfassessment, 
     tphone, tcardid, phone, password, sex, wechat
   </sql>
+  <update id="changpassword" parameterType="com.education.bean.Teacher">
+    update teacher set password=#{password} where phone=#{phone}
+
+  </update>
+  <select id="findall" resultMap="BaseResultMap">
+    select * from teacher where tid=#{tid}
+  </select>
   <select id="login" resultMap="BaseResultMap">
     select * from teacher where phone=#{phone}
   </select>
@@ -49,7 +56,7 @@
       #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.education.bean.Teacher">
+  <insert id="insertSelective" parameterType="com.education.bean.Teacher" keyProperty="tid">
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="tid != null">

@@ -22,6 +22,13 @@
     sid, sname, shead, sage, stuaddress, gradeid, stuschool, status, `character`, sphone,
     scardid, phone, password, sex, wechat
   </sql>
+  <update id="changpassword" parameterType="com.education.bean.Teacher">
+    update student set password=#{password} where phone=#{phone}
+
+  </update>
+  <select id="findall" resultMap="BaseResultMap">
+    select * from student where sid=#{sid}
+  </select>
   <select id="login" resultMap="BaseResultMap">
     select * from student where phone=#{phone}
   </select>
@@ -49,7 +56,7 @@
       #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.education.bean.Student">
+  <insert id="insertSelective" parameterType="com.education.bean.Student" keyProperty="sid">
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="sid != null">

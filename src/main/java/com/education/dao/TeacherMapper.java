@@ -3,6 +3,9 @@ package com.education.dao;
 import com.education.bean.Teacher;
 
 public interface TeacherMapper {
+    int changpassword(String phone,String password);
+
+    Teacher findall(int tid);
     Teacher login(String phone);
     int deleteByPrimaryKey(Integer tid);
 
