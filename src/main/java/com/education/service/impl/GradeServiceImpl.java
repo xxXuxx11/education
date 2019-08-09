@@ -2,7 +2,9 @@ package com.education.service.impl;
 
 import com.education.bean.Grade;
 import com.education.service.GradeService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GradeServiceImpl implements GradeService {
     @Override
     public int deleteByPrimaryKey(Integer gid) {

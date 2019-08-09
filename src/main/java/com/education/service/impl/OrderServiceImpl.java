@@ -2,7 +2,9 @@ package com.education.service.impl;
 
 import com.education.bean.Order;
 import com.education.service.OrderService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OrderServiceImpl implements OrderService {
     @Override
     public int deleteByPrimaryKey(Integer oid) {

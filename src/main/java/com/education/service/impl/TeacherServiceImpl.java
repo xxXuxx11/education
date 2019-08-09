@@ -4,11 +4,12 @@ import com.education.bean.Teacher;
 import com.education.dao.TeacherMapper;
 import com.education.service.TeacherService;
 import com.education.util.yunpian.sdk.TestSms;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
-
+@Service
 public class TeacherServiceImpl implements TeacherService {
     @Resource
     private TeacherMapper teacherMapper;

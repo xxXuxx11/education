@@ -2,7 +2,9 @@ package com.education.service.impl;
 
 import com.education.bean.Activityimage;
 import com.education.service.ActivityimageService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ActivityimageServiceImpl implements ActivityimageService {
  @Override
  public int deleteByPrimaryKey(Integer imageid) {
