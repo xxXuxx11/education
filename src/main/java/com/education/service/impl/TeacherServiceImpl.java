@@ -95,7 +95,7 @@ if (daunxin1.equals(duanxin)&&password.equals(tpassword)){
 
     @Override
     public Teacher selectByPrimaryKey(Integer tid) {
-        return null;
+        return teacherMapper.selectByPrimaryKey(tid);
     }
 
     @Override
