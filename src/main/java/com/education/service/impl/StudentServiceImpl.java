@@ -77,7 +77,7 @@ private StudentMapper studentMapper;
 
     @Override
     public Student selectByPrimaryKey(Integer sid) {
-        return null;
+         return studentMapper.selectByPrimaryKey(sid);
     }
 
     @Override
